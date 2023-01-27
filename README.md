@@ -7,7 +7,7 @@ To use this crate, add `win_run` as a dependency to your project's `Cargo.toml`:
 
 ```toml
 [dependencies]
-win_run = "0.1.0"
+win_run = "0.1.1"
 ```
 
 ### Important
@@ -33,4 +33,4 @@ run("/executable/path", "args", "/current/directory/", Desktop::Secure, Elevatio
 
 ### License
 
-Licensed under [MIT license](https://github.com/hristo-gochev/merkle_hash/blob/main/LICENSE).
+Licensed under [MIT license](https://github.com/hristogochev/merkle_hash/blob/main/LICENSE).

@@ -1,19 +1,19 @@
 [package]
 name = "win_run"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-authors = ["hristo-gochev"]
+authors = ["hristogochev"]
 description = "Run any executable as User, Admin or Local System from a Windows Service."
 license = "MIT"
 documentation = "https://docs.rs/win_run/"
-homepage = "https://github.com/hristo-gochev/win_run"
-repository = "https://github.com/hristo-gochev/win_run"
+homepage = "https://github.com/hristogochev/win_run"
+repository = "https://github.com/hristogochev/win_run"
 readme = "README.md"
 keywords = ["windows", "service", "user", "admin", "system"]
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-windows = { version = "0.43", features = ["Win32","Win32_Foundation","Win32_System_Threading","Win32_Security","Win32_System_RemoteDesktop"]}
+windows = { version = "0.43.0", features = ["Win32","Win32_Foundation","Win32_System_Threading","Win32_Security","Win32_System_RemoteDesktop"]}
 sysinfo = "0.27"
 widestring = "1"
