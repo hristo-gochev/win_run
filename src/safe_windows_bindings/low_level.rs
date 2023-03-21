@@ -9,14 +9,11 @@ use windows::Win32::Security::{
 use windows::Win32::System::RemoteDesktop::{WTSGetActiveConsoleSessionId, WTSQueryUserToken};
 use windows::Win32::System::Threading::{
     CreateProcessAsUserW, OpenProcess, OpenProcessToken, PROCESS_ACCESS_RIGHTS,
-    PROCESS_INFORMATION, STARTUPINFOW,
+    PROCESS_CREATION_FLAGS, PROCESS_INFORMATION, STARTUPINFOW,
 };
 
 /// Closes a token and returns an error if there was one
-pub fn close_token<P0>(h_object: P0) -> Result<(), String>
-where
-    P0: Into<HANDLE>,
-{
+pub fn close_token(h_object: HANDLE) -> Result<(), String> {
     // Close the token
     let closed = unsafe { CloseHandle(h_object).as_bool() };
     // If it couldn't be closed, find out why and return the error
@@ -196,9 +193,9 @@ pub fn create_process_as_user_w(
     process_attributes: Option<*const SECURITY_ATTRIBUTES>,
     thread_attributes: Option<*const SECURITY_ATTRIBUTES>,
     inherit_handle: bool,
-    creation_flags: u32,
+    creation_flags: PROCESS_CREATION_FLAGS,
     environment: Option<*const c_void>,
-    current_directory: Option<PCWSTR>,
+    current_directory: PCWSTR,
     startup_info: STARTUPINFOW,
     mut process_information: PROCESS_INFORMATION,
 ) -> Result<(), String> {

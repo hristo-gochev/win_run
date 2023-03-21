@@ -12,7 +12,7 @@ use windows::Win32::Security::{
     TOKEN_LINKED_TOKEN, TOKEN_QUERY,
 };
 use windows::Win32::System::Threading::{
-    PROCESS_INFORMATION, PROCESS_QUERY_INFORMATION, STARTUPINFOW,
+    PROCESS_CREATION_FLAGS, PROCESS_INFORMATION, PROCESS_QUERY_INFORMATION, STARTUPINFOW,
 };
 
 /// Gets the pid of a process by name
@@ -137,9 +137,9 @@ pub fn create_process_with_token(
         None,
         None,
         false,
-        0,
+        PROCESS_CREATION_FLAGS(0),
         None,
-        Some(current_directory),
+        current_directory,
         startup_info,
         process_information,
     ) {
