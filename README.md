@@ -7,7 +7,7 @@ To use this crate, add `win_run` as a dependency to your project's `Cargo.toml`:
 
 ```toml
 [dependencies]
-win_run = "0.2.0"
+win_run = "0.2.1"
 ```
 
 ### Important
